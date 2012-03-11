@@ -52,4 +52,4 @@ exit 0
 	
 fi
 
-$COMMAND $1 $2
+exec $COMMAND $1 $2
