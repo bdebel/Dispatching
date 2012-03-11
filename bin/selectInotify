@@ -42,3 +42,4 @@ exit 0
 	
 fi
 
+$COMMAND $1 $2

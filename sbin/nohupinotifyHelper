@@ -6,6 +6,6 @@ echo END DUMP CONFIG $1
 . $1
 
 DIRNAME=`dirname $1`
-mkdir -p log/nohup/$DIRNAME
+mkdir -p log/NOHUPINOTIFY/$DIRNAME
 
-nohup sbin/inotifyHelper $1 > log/nohup/$DIRNAME/inotifyHelper &
+nohup sbin/inotifyHelper $1 > log/NOHUPINOTIFY/$DIRNAME/inotifyHelper &
