@@ -1,0 +1,4 @@
+max=1
+inotify=bin/selectInotify
+cmd=bin/distrib
+listdistrib=node2,node3

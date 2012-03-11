@@ -1,0 +1,30 @@
+
+#!/bin/bash
+
+LOGFILE=log/translate
+
+INIFILE=${1}inotify.desc
+
+if [ -f $INIFILE ]
+then
+. $INIFILE 
+else
+echo Unable to Init $0
+exit 0
+fi 
+
+FILE=$2
+echo FILE ${1}$FILE >> $LOGFILE
+ 
+. ${1}$FILE
+
+#sleep $(( $RANDOM % 30 / 3 )) 
+sleep 10
+
+mv ${1}$FILE ok
+
+#Check if some work in wait
+
+mv ${1}wait/*.look ${1}
+
+

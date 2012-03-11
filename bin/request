@@ -1,0 +1,32 @@
+
+#!/bin/bash
+
+LOGFILE=log/request
+
+INIFILE=${1}inotify.desc
+
+if [ -f $INIFILE ]
+then
+. $INIFILE 
+else
+echo Unable to Init $0
+exit 0
+fi 
+
+#extract extention of file 
+FILE=$2
+echo FILE ${1}$FILE >> $LOGFILE
+ 
+. ${1}$FILE
+
+if [ ! -d ${1}$lgName ]
+then
+echo NON EXIST LGNAME ${1}$lgName >> $LOGFILE
+DIRNAME=nok/LGNAME/${1}
+mkdir -p $DIRNAME
+mv ${1}$FILE $DIRNAME
+exit 0
+fi
+
+mv ${1}$FILE ${1}$lgName
+

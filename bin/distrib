@@ -1,0 +1,36 @@
+
+#!/bin/bash
+
+LOGFILE=log/distrib
+
+INIFILE=${1}inotify.desc
+
+if [ -f $INIFILE ]
+then
+. $INIFILE 
+else
+echo Unable to Init $0
+exit 0
+fi 
+
+#extract extention of file 
+FILE=$2
+echo FILE ${1}$FILE >> $LOGFILE
+ 
+. ${1}$FILE
+
+mv ${1}$FILE ${1}wait
+
+BASE=`basename $FILE .cmd`
+
+
+
+#mkdir -p working/tmp
+#find ${1} -type l > working/tmp/$$.tmp 
+
+for i in `echo $listdistrib | tr , " " `
+do
+echo request=${1}wait/$FILE > node/$i/$BASE.look
+done
+
+#rm working/tmp/$$.tmp

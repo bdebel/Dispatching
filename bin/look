@@ -1,0 +1,44 @@
+
+#!/bin/bash
+
+LOGFILE=log/look
+
+INIFILE=${1}inotify.desc
+
+if [ -f $INIFILE ]
+then
+. $INIFILE 
+else
+echo Unable to Init $0
+exit 0
+fi 
+
+FILE=$2
+echo FILE ${1}$FILE >> $LOGFILE
+ 
+
+NB=$(ls ${1}*.cmd | wc -l)
+echo ${1} NB: $NB $max>> $LOGFILE
+
+if [ $NB -lt $max ]
+then
+
+. ${1}$FILE
+echo ${1} START Copy $NB >> $LOGFILE
+
+if [ -f $request ]
+then
+echo ${1} Request will be move $NB >> $LOGFILE
+	mv $request $1
+fi
+
+#mkdir -p working/trash
+#mv ${1}$FILE working/trash
+rm -rf ${1}$FILE 
+
+else
+mv ${1}$FILE ${1}wait 
+
+fi
+
+
