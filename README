@@ -1,0 +1,16 @@
+Dependance :
+bash
+inotifywait
+
+Start application from top directory:
+sbin/rcBatch
+
+process command file:
+cp test.cmd request/
+
+check where is your file:
+ps ufx 
+tree request node ok 
+
+in case of non working 
+tree log : to see which file is usefull 
