@@ -21,7 +21,9 @@ echo FILE ${1}$FILE >> $LOGFILE
 #sleep $(( $RANDOM % 30 / 3 )) 
 sleep 10
 
-mv ${1}$FILE ok
+DIR=ok/`date +%m/%d/%k/%M`
+mkdir -p $DIR
+mv ${1}$FILE $DIR 
 
 #Check if some work in wait
 
