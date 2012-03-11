@@ -1,0 +1,4 @@
+max=4
+inotify=bin/selectInotify
+cmd=bin/translate
+look=bin/look

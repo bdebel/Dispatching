@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo INOTIFY $1
+cat $1
+echo END DUMP CONFIG $1 
+. $1
+
+inotifywait -m -e moved_to -e create `dirname $1` --format "%w %f"| xargs -n 2 --max-proc=$max $inotify &

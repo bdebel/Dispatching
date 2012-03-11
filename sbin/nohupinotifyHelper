@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo INOTIFY $1
+cat $1
+echo END DUMP CONFIG $1 
+. $1
+
+DIRNAME=`dirname $1`
+mkdir -p log/nohup/$DIRNAME
+
+nohup sbin/inotifyHelper $1 > log/nohup/$DIRNAME/inotifyHelper &
