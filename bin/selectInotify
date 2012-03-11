@@ -1,6 +1,7 @@
 
 #!/bin/bash
 
+mkdir -p log
 LOGFILE=log/selectInotify
 
 INIFILE=${1}inotify.desc
@@ -16,7 +17,16 @@ fi
 #extract extention of file 
 FILE=$2
 echo FILE ${1}$FILE >> $LOGFILE
-EXT=$(echo $FILE | cut -d . -f2)
+
+#stop if directory creation/move
+if [ -d ${1}$FILE ]
+then
+echo directory has bean create ${1}$FILE >> $LOGFILE
+exit 0
+fi
+
+#look after extention to find command
+EXT=$(echo $FILE | sed -e 's/^.*\.//')
  
 grep -q ${EXT}= $INIFILE
 

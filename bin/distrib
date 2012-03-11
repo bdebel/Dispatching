@@ -19,6 +19,7 @@ echo FILE ${1}$FILE >> $LOGFILE
  
 . ${1}$FILE
 
+mkdir -p ${1}wait
 mv ${1}$FILE ${1}wait
 
 BASE=`basename $FILE .cmd`

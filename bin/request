@@ -28,5 +28,6 @@ mv ${1}$FILE $DIRNAME
 exit 0
 fi
 
+echo mv ${1}$FILE ${1}$lgName >> $LOGFILE
 mv ${1}$FILE ${1}$lgName
 
